@@ -1,8 +1,10 @@
-import { IconType } from "react-icons/lib";
+import React from "react";
+
+import { IconBaseProps } from "react-icons/lib";
 
 export interface Props {
     name: string;
-    Icon: IconType;
+    icon?: React.ComponentType<IconBaseProps>;
 }
 
 export type InputProps = JSX.IntrinsicElements['input'] & Props;
