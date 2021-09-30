@@ -6,28 +6,29 @@ import { Form } from './styles';
 import Modal from '../Modal';
 import Input from '../Input';
 
-import { Food, ModalAddFoodProps } from "./types";
+import { Food, ModalEditFoodProps } from "./types";
 
-export function ModalAddFood({isOpen, handleAddFood, setIsOpen}: ModalAddFoodProps) {
+export function ModalEditFood({ isOpen, editingFood, setIsOpen, handleUpdateFood }: ModalEditFoodProps) {
   const formRef = createRef<FormHandles>();
 
   const handleSubmit: SubmitHandler<Food> = data => {
-    handleAddFood(data);
+    handleUpdateFood(data);
     setIsOpen();
   };
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-      <Form ref={formRef} onSubmit={handleSubmit}>
-        <h1>Novo Prato</h1>
+      <Form ref={formRef} onSubmit={handleSubmit} initialData={editingFood}>
+        <h1>Editar Prato</h1>
         <Input name="image" placeholder="Cole o link aqui" />
 
         <Input name="name" placeholder="Ex: Moda Italiana" />
         <Input name="price" placeholder="Ex: 19.90" />
 
         <Input name="description" placeholder="Descrição" />
-        <button type="submit" data-testid="add-food-button">
-          <p className="text">Adicionar Prato</p>
+
+        <button type="submit" data-testid="edit-food-button">
+          <div className="text">Editar Prato</div>
           <div className="icon">
             <FiCheckSquare size={24} />
           </div>
@@ -37,4 +38,4 @@ export function ModalAddFood({isOpen, handleAddFood, setIsOpen}: ModalAddFoodPro
   );
 };
 
-export default ModalAddFood;
+export default ModalEditFood;
