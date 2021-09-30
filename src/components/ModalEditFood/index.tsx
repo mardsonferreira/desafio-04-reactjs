@@ -1,17 +1,22 @@
-import { createRef } from 'react';
-import { FiCheckSquare } from 'react-icons/fi';
-import { SubmitHandler, FormHandles } from '@unform/core';
+import { createRef } from "react";
+import { FiCheckSquare } from "react-icons/fi";
+import { SubmitHandler, FormHandles } from "@unform/core";
 
-import { Form } from './styles';
-import Modal from '../Modal';
-import Input from '../Input';
+import { Form } from "./styles";
+import { Modal } from "../Modal";
+import { Input } from "../Input";
 
 import { EditFood, ModalEditFoodProps } from "./types";
 
-export function ModalEditFood({ isOpen, editingFood, setIsOpen, handleUpdateFood }: ModalEditFoodProps) {
+export function ModalEditFood({
+  isOpen,
+  editingFood,
+  setIsOpen,
+  handleUpdateFood,
+}: ModalEditFoodProps) {
   const formRef = createRef<FormHandles>();
 
-  const handleSubmit: SubmitHandler<EditFood> = data => {
+  const handleSubmit: SubmitHandler<EditFood> = (data) => {
     handleUpdateFood(data);
     setIsOpen();
   };
@@ -36,6 +41,4 @@ export function ModalEditFood({ isOpen, editingFood, setIsOpen, handleUpdateFood
       </Form>
     </Modal>
   );
-};
-
-export default ModalEditFood;
+}

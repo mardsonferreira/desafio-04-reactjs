@@ -24,5 +24,3 @@ export function Header({ openModal }: HeaderProps) {
     </Container>
   );
 }
-
-export default Header;
