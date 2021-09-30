@@ -1,15 +1,13 @@
-export interface Food {
-  id: number;
+export interface EditFood {
   name: string;
   description: string;
   price: number;
-  available: boolean;
   image: string;
 }
 
 export interface ModalEditFoodProps {
-  editingFood: Food;
+  editingFood: EditFood;
   isOpen: boolean;
-  handleUpdateFood: (food: Food) => void;
+  handleUpdateFood: (food: EditFood) => void;
   setIsOpen: () => void;
 }

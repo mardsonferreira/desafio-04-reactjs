@@ -6,3 +6,10 @@ export interface FoodProps {
   available: boolean;
   image: string;
 }
+
+export interface AddFoodProps {
+    name: string;
+    description: string;
+    price: number;
+    image: string;
+  }

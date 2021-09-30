@@ -6,12 +6,12 @@ import { Form } from './styles';
 import Modal from '../Modal';
 import Input from '../Input';
 
-import { Food, ModalEditFoodProps } from "./types";
+import { EditFood, ModalEditFoodProps } from "./types";
 
 export function ModalEditFood({ isOpen, editingFood, setIsOpen, handleUpdateFood }: ModalEditFoodProps) {
   const formRef = createRef<FormHandles>();
 
-  const handleSubmit: SubmitHandler<Food> = data => {
+  const handleSubmit: SubmitHandler<EditFood> = data => {
     handleUpdateFood(data);
     setIsOpen();
   };

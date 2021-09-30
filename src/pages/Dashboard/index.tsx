@@ -7,7 +7,7 @@ import ModalAddFood from "../../components/ModalAddFood";
 import ModalEditFood from "../../components/ModalEditFood";
 import { FoodsContainer } from "./styles";
 
-import { FoodProps } from "./types";
+import { FoodProps, AddFoodProps } from "./types";
 
 export function Dashboard() {
   const [foods, setFoods] = useState<FoodProps[]>([]);
@@ -25,7 +25,7 @@ export function Dashboard() {
     loadFoods();
   }, []);
 
-  async function handleAddFood(food: FoodProps) {
+  async function handleAddFood(food: AddFoodProps) {
     try {
       const response = await api.post("/foods", {
         ...food,
@@ -38,7 +38,7 @@ export function Dashboard() {
     }
   }
 
-  async function handleUpdateFood(food: FoodProps) {
+  async function handleUpdateFood(food: AddFoodProps) {
     try {
       const foodUpdated = await api.put(`/foods/${editingFood.id}`, {
         ...editingFood,
